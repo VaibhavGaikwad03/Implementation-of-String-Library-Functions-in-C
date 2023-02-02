@@ -4,22 +4,24 @@
 
 char *str_set(char *str, int ch)
 {
-    while (*str != '\0')
+    int iCnt = 0;
+
+    while (str[iCnt] != '\0')
     {
-        *str = ch;
-        str++;
+        str[iCnt++] = ch;
     }
     return str;
 }
 
 int main(void)
 {
-    char str[20] = "Hello World!";
     char ch = 'v';
+    char *ptr = NULL;
+    char str[20] = "Hello World!";
 
-    str_set(str, ch);
+    ptr = str_set(str, ch);
 
-    printf(str);
+    printf(ptr);
 
     return 0;
 }
