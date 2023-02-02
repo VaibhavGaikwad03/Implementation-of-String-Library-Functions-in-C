@@ -4,11 +4,13 @@
 
 char *str_lwr(char *str)
 {
-    while (*str != '\0')
+    int iCnt = 0;
+
+    while (str[iCnt] != '\0')
     {
-        if (*str >= 'A' && *str <= 'Z')
-            *str = *str + 32;
-        str++;
+        if (str[iCnt] >= 'A' && str[iCnt] <= 'Z')
+            str[iCnt] = str[iCnt] + 32;
+        iCnt++;
     }
     return str;
 }
@@ -16,10 +18,11 @@ char *str_lwr(char *str)
 int main(void)
 {
     char str[20] = "Jay Ganesh";
+    char *ptr = NULL;
 
-    str_lwr(str);
+    ptr = str_lwr(str);
 
-    printf(str);
+    printf(ptr);
 
     return 0;
 }
