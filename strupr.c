@@ -4,22 +4,25 @@
 
 char *str_upr(char *str)
 {
-    while (*str != '\0')
+    int iCnt = 0;
+
+    while (str[iCnt] != '\0')
     {
-        if (*str >= 'a' && *str <= 'z')
-            *str = *str - 32;
-        str++;
+        if (str[iCnt] >= 'a' && str[iCnt] <= 'z')
+            str[iCnt] -= 32;
+        iCnt++;
     }
     return str;
 }
 
 int main(void)
 {
+    char *ptr = NULL;
     char str[20] = "Jay Ganesh";
 
-    str_upr(str);
+    ptr = str_upr(str);
 
-    printf(str);
+    puts(ptr);
 
     return 0;
 }
