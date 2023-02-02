@@ -5,15 +5,15 @@
 
 char *str_n_cat(char *dest, const char *src, int n)
 {
-    int iCnt = 0;
+    int iCnt1 = 0, iCnt2 = 0;
 
-    while (*dest != '\0')
-        dest++;
+    while (dest[iCnt2] != '\0')
+        iCnt2++;
 
-    for (iCnt = 0; iCnt < n; iCnt++, dest++)
-        *dest = src[iCnt];
+    for (iCnt1 = 0; iCnt1 < n; iCnt1++, iCnt2++)
+        dest[iCnt2] = src[iCnt1];
 
-    *dest = '\0';
+    dest[iCnt2] = '\0';
 
     return dest;
 }
@@ -22,10 +22,11 @@ int main(void)
 {
     char src[20] = "Marvellous";
     char dest[20] = "Hello ";
+    char *ptr = NULL;
 
-    str_n_cat(dest, src, 6);
+    ptr = str_n_cat(dest, src, 6);
 
-    puts(dest);
+    puts(ptr);
 
     return 0;
 }
