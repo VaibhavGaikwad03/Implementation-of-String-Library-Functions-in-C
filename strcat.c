@@ -4,16 +4,18 @@
 
 char *str_cat(char *dest, const char *src)
 {
-    while (*dest != '\0')
-        dest++;
+    int iCnt1 = 0, iCnt2 = 0;
 
-    while (*src != '\0')
+    while (dest[iCnt2] != '\0')
+        iCnt2++;
+
+    while (src[iCnt1] != '\0')
     {
-        *dest = *src;
-        dest++;
-        src++;
+        dest[iCnt2] = src[iCnt1];
+        iCnt1++;
+        iCnt2++;
     }
-    *dest = '\0';
+    dest[iCnt2] = '\0';
 
     return dest;
 }
@@ -22,10 +24,11 @@ int main(void)
 {
     char dest[20] = "Jay";
     char src[20] = "Ganesh";
+    char *ptr = NULL;
 
-    str_cat(dest, src);
+    ptr = str_cat(dest, src);
 
-    printf(dest);
+    printf(ptr);
 
     return 0;
 }
